@@ -1,2 +1,2 @@
-# ipfs-ethereum-tutorial
+# ETH-Lagos-Challenge
  Ethereum Tutorial Submission
