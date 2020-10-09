@@ -4,11 +4,15 @@ contract("IPFSInbox", accounts => {
     it("...should emit an event when you send an IPFS address.", async () => {
         const ipfsInbox = await IPFSInbox.deployed();
 
+        eventEmitted = true
+        var event = ipfsInbox.ipfsSent
+        console.log(event())
+        if(event()._eventsCount === 0){
         eventEmitted = false
-        var event = ipfsInbox.ipfsSent()
-        await event.watch((err, res) => {
-            eventEmitted = true
-        })
+        }
+        // await event.watch((err, res) => {
+        //     eventEmitted = true
+        // })
 
         await ipfsInbox.sendIPFS(accounts[1], "SampleAddress", { from: accounts[0] });
 
